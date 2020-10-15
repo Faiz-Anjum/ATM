@@ -1,6 +1,6 @@
 from time import sleep
 import os
-import sys                                                                      # 376 Lines
+import sys                                                                      # 420 Lines
 from os import system
 
 
@@ -9,6 +9,10 @@ def cls():
         os.system('cls')
     else:
         os.system('clear')
+
+def permission_not_found():
+    cls()
+    print('It has been detected that you don\'t have the permission to write files in this directory.\n\nIf you\'re using this script on a Linux distribution, run the script as root.\n\nIf you\'re on Windows, check that the files are not set to \"read only\".\n\nIf it still doesn\'t work then you don\'t have the right privileges to execute this script or make changes. Most probably your administration has blocked this feature.')
 
 try:
     os.system('pip3 install -r requirements.txt || pip install -r requirements.txt')
@@ -43,9 +47,9 @@ try:
 ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
  ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
                                                                                                                                                                     
-	{}         
+    {}         
                                                                                                        
-	""".format(IO.Fore.LIGHTRED_EX, IO.Style.RESET_ALL + IO.Style.BRIGHT)
+    """.format(IO.Fore.LIGHTRED_EX, IO.Style.RESET_ALL + IO.Style.BRIGHT)
         print(MAIN_BANNER)
     
 
@@ -310,24 +314,25 @@ names = []
 def name():
     inx = 0
     usr = 1
-    
-    for i in range(f):
-        o_name = input('Enter the name of user {}.\n> '.format(usr))
-        print('')
-        t_name = o_name.title()
-        names.append(t_name)
-        with open('asset/name{}.py'.format(str(inx)), 'w') as nn:
-            nn.write('name{} = \'{}\''.format(inx, t_name))
-            nn.close()
-            inx += 1
-            usr += 1
-            cls()
-    print('Saving Names in Database...')
-    sleep(3)
-    cls()
-    pin()
+    try:
+        for i in range(f):
+            o_name = input('Enter the name of user {}.\n> '.format(usr))
+            print('')
+            t_name = o_name.title()
+            names.append(t_name)
+            with open('asset/name{}.py'.format(str(inx)), 'w') as nn:
+                nn.write('name{} = \'{}\''.format(inx, t_name))
+                nn.close()
+                inx += 1
+                usr += 1
+                cls()
+        print('Saving Names in Database...')
+        sleep(3)
+        cls()
+        pin()
 
-
+    except PermissionError:
+        permission_not_found()
 
 def pin():
     inx2 = 0
@@ -411,4 +416,5 @@ def run():
         sleep(3)
         run()
     
+
 welcome()
