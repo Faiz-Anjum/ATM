@@ -32,24 +32,12 @@ Run setup.py and follow the on-screen instructions to setup script for the first
 ![Homescreen](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/homescreen.png)
 Homescreen
 
-
-
-
-
-
-
-
-
+.
 
 ![Services](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/services.png)
 Services
 
-
-
-
-
-
-
+.
 
 ![Exiting](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/exit.png)
 Exit screen
