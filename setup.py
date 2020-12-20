@@ -52,10 +52,11 @@ cls()
 
 inx = 0
 usr = 1
-
+names = []
 for i in range(5):
     o_name = input('Enter the name of user {}.\n> '.format(usr))
     t_name = o_name.title()
+    names.append(t_name)
     with open('asset/name{}.py'.format(str(inx)), 'w') as nn:
         nn.write('name{} = \'{}\''.format(inx, t_name))
         nn.close()
@@ -68,17 +69,17 @@ cls()
 
 
 inx2 = 0
-usr2 = 1
+
 
 
 for i in range(5):
     try:
-        o_pin = int(input('Enter the preferred PIN for user {}.\n> '.format(usr2)))
+        o_pin = int(input('Enter the preferred PIN for {}.\n> '.format(names[inx2])))
         with open('asset/pin{}.py'.format(str(inx2)), 'w') as pn:
             pn.write('pin{} = {}'.format(inx2, o_pin))
             pn.close()
             inx2 += 1
-            usr2 += 1
+            
     except ValueError:
         cls()
         print('You corrupted the data files by not being careful while entering data. Run this script again but if it doesn\'t run, reinstall the whole script')
@@ -92,16 +93,16 @@ cls()
 
 
 inx3 = 0
-usr3 = 1
+
 
 for i in range(5):
     try:
-        o_bal = int(input('Enter the Balance for user {}.\n> $ '.format(usr3)))
+        o_bal = int(input('Enter the Balance for {}.\n> $ '.format(names[inx3])))
         with open('asset/asset{}.py'.format(str(inx3)), 'w') as bl:
             bl.write('a{} = {}'.format(inx3, o_bal))
             bl.close()
             inx3 += 1
-            usr3 += 1
+            
     except ValueError:
         cls()
         print('You corrupted the data files by not being careful while entering data. Run this script again but if it doesn\'t run, reinstall the whole script')
