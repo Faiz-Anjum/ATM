@@ -312,7 +312,7 @@ def money_transfer():
                     g.close()
                     sleep(3)
                     other()
-            if len(mn) == 0:
+            if mn == 0:
                 emp()
                 cls()
                 money_transfer()
