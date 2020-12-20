@@ -20,5 +20,6 @@ for enhancing experience, it is suggested to install pyfiglet
 	installation: pip install -r requirements.txt    or    pip3 install -r requirements.txt
 
 
-** Instruction for first time usuage**
+**Instruction for first time usuage**
+
 Run setup.py and follow the on-screen instructions to setup script for the first time.
