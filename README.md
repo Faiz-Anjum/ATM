@@ -13,6 +13,8 @@ There are several things you can do;
 
 5. Change your PIN
 
+This script is cross-platform and can run in both Windows and Debian based distros.
+
 
 **Optional**
 for enhancing experience, it is suggested to install pyfiglet
@@ -23,7 +25,7 @@ for enhancing experience, it is suggested to install pyfiglet
 **Instruction for first time usuage**
 
 Run setup.py and follow the on-screen instructions to setup script for the first time.
-
+	python3 setup.py   or   python setup.py
 
 
 
