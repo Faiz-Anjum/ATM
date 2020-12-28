@@ -1,5 +1,6 @@
 from time import sleep
 import os
+import sys
 from os import system
 
 
@@ -27,10 +28,13 @@ from asset.name3 import name3
 from asset.name4 import name4
 
 def cls():
-    os.system('cls')
+    if sys.platform.startswith('win32' or 'win64' or 'win86'):
+        os.system('cls')
+    else:
+        os.system('clear')
 
 
-
+cls()
 
 print('Welcome to the Merryweather ATM setup wizard.\nPlease enter the following questions carefully for any wrong information may create further problems.')
 
