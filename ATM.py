@@ -1,4 +1,5 @@
 import os
+import sys
 from os import system
 from time import sleep
 try:
@@ -24,7 +25,10 @@ misc_index = []
 
 
 def cls():
-    os.system('cls')
+    if sys.platform.startswith('win32' or 'win64' or 'win86'):
+        os.system('cls')
+    else:
+        os.system('clear')
 
 
 # Function for homescreen.
