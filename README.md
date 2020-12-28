@@ -1,5 +1,5 @@
 # ATM
-So this script is written in Python 3 and it is an Interactive ATM service by the name of MerryWeather.
+So this script is written in Python 3 and it is an Interactive ATM service by the name of MerryWeather. 
 
 There are several things you can do;
 
