@@ -2,6 +2,12 @@ import os
 import sys
 from os import system
 from time import sleep
+
+if sys.platform.startswith('win32' or 'win64' or 'win86'):
+    os.system('cls')
+else:
+    os.system('clear')
+
 try:
     from pyfiglet import Figlet
     f = Figlet(font='big')
@@ -10,10 +16,11 @@ except ImportError or ModuleNotFoundError:
     pass
 
 
-
 ast = []
 
 withdraw_count = []
+
+username = []
 
 def empty_response():
     cls()
@@ -34,6 +41,7 @@ def cls():
 # Function for homescreen.
 def home():
     print("\nWelcome to Merryweather Automated Machine Services.")
+    print('')
     try:
         idd = int(input("Please enter your personal identification number.\n> "))
     except ValueError:
@@ -50,6 +58,7 @@ def home():
         ast.append(indexx)
         cls()
         print('Hello {},' .format(id_name[indexx]))
+        username.append(id_name[indexx])
         service()
     elif not idd in id_list:
         cls()
@@ -64,6 +73,7 @@ def home():
 def service():
     print("What service would you like to use today?\n")
     print("1. Withdrawl\n2. Deposit\n3. Balance enquiry\n4. Money Transfer\n5. Change PIN")
+    print('')
     try:
         serv = int(input("Enter either \'1\', \'2\', \'3\', \'4\', \'5\' or Enter \'0\' to exit.\n> "))
     except ValueError:
@@ -94,7 +104,7 @@ def service():
 
 def ex():
     cls()
-    ab = input('Thank you for using Merryweather ATM services. Press any key to exit.\n')
+    ab = input('Thank you for using Merryweather ATM services. Press Enter to exit this script.\n')
     if len(ab) >= 0:
         exit()
     
@@ -104,7 +114,7 @@ def emp():
 
 def other():
     cls()
-    ott = input('Do you want to use any other service? \nEnter either \'Yes\' or \'No.\'\n> ')
+    ott = input('Do you want to use any other service?\n\nEnter either \'Yes\' or \'No.\'\n> ')
     if ott == "Yes" or ott == 'yes' or ott == 'YES':
         cls()
         service()
@@ -117,7 +127,7 @@ def other():
         other()
     elif ott != 'Yes' or ott != 'YES' or ott != 'yes' or ott != 'no' or ott != 'No' or ott != 'NO':
         cls()
-        print('Please enter either \'Yes\' or \'No\'')
+        print('Please enter either \'Yes\' or \'No\'.')
         sleep(3)
         other()
     elif len(ott) == 0:
@@ -135,6 +145,8 @@ def balance():
         cls()
         print('Session Timed out, Please login again.')
         sleep(3)
+        os.system('python3 ATM.py || python ATM.py')
+        cls()
         exit()
     else:
         from ids import id_balance
@@ -166,7 +178,7 @@ def withdraw():
                 up_bal = int(ac_bal[0]) - int(amount)
                 a = misc_index[0]
                 id_balance[a] = up_bal
-                print("Your available balance is ${}" .format(id_balance[misc_index[0]]))
+                print("Your available balance is ${}." .format(id_balance[misc_index[0]]))
                 abc = 'asset' + str(ast[0])
                 with open('asset/{}.py'.format(abc),'w') as a:
                     a.write('a{} = {}'.format(ast[0], id_balance[misc_index[0]]))
@@ -249,7 +261,7 @@ def id_change():
             with open('asset/pin{}.py'.format(inx),'w') as f:
                 f.write('pin{} = {}'.format(inx, check))
                 misc_id.append(1)
-                print("Password change successful")
+                print("Password successfully changed!")
                 f.close()
                 sleep(3)
                 other()
@@ -289,11 +301,18 @@ money_transfer_count = []
 
 
 def money_transfer():
+    cls()
     from ids import id_name, id_balance
     inx = misc_index[0]
     cc = input("Enter the name of the recipient\n> ")
     cb = cc.title()
-    if cb in id_name:
+    if cb == str(*username):
+        cls()
+        print('You cannot send money to yourself.')
+        sleep(3)
+        other()
+        
+    elif cb in id_name:
         
         inx2 =  id_name.index(cb)
         try:
@@ -326,9 +345,9 @@ def money_transfer():
             sleep(3)
             cls()
             money_transfer()
-    if not cb in id_name:
+    elif not cb in id_name:
         cls()
-        print('Transaction Failed.\nThe recepient name you entered doesn\'t match our records.')
+        print('Transaction Failed.\n\nThe recepient name you entered doesn\'t match our records.')
         sleep(3)
         other()
 
