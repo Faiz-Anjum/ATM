@@ -213,6 +213,13 @@ def deposit():
     bal = id_balance[misc_index[0]]
     ac_bal.append(bal)
     try:
+        if len(withdraw_count) > 0:
+            cls()
+            print('Session Timed out, Please login again.')
+            sleep(3)
+            os.system('python3 ATM.py || python ATM.py')
+            cls()
+            exit()
         check = int(input("How much money do you want to deposit?\n> $ "))
         if check <= 10000:
             up_bal = int(ac_bal[0]) + int(check)
