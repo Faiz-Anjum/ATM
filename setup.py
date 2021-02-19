@@ -4,6 +4,10 @@ import sys
 from os import system
 
 
+try:
+    os.system('pip3 install -r requirements.txt || pip install -r requirements.txt')
+except RuntimeError:
+    pass
 
 
 
