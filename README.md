@@ -13,7 +13,7 @@ There are several things you can do;
 
 5. Change your PIN
 
-Script supports upto 10 user accounts, all totally customizable.
+Script supports up to 10 user accounts, all totally customizable.
 
 This script is cross-platform and can run in both Windows and Debian based distros, however it is optimized for Windows.
 
