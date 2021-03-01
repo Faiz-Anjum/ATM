@@ -1,6 +1,6 @@
 import os
 import sys
-from os import system                                                                   # 405 Lines
+from os import system                                                                   # 412 Lines
 from time import sleep
 
 def run():
@@ -187,16 +187,22 @@ try:
         ac_bal.append(bal)
         try:
             if len(withdraw_count) > 0:
-                    cls()
-                    print("You can only withdraw/deposit once.")
-                    sleep(3)
-                    cls()
-                    other()
+                cls()
+                print('Session Timed out, Please login again.')
+                sleep(3)
+                os.system('python3 ATM.py || python ATM.py')
+                cls()
+                exit()
             elif len(withdraw_count) <= 0:
                 amount = int(input('How much money do you want to withdraw?\n> $ '))
                 if int(amount) > ac_bal[0]:
-                    print("You do not have sufficiesnt balance in your account.")
-                    service()
+                    cls()
+                    print('Transaction Failed')
+                    print('')
+                    print("You do not have sufficient balance in your account.")
+                    sleep(3)
+                    cls()
+                    other()
                 elif int(amount) > 0 and int(amount) <= ac_bal[0] and len(withdraw_count) <= 0:
                     up_bal = int(ac_bal[0]) - int(amount)
                     a = misc_index[0]
@@ -223,14 +229,6 @@ try:
             withdraw()
         
         
-        
-
-
-
-
-
-
-
     def deposit():
         cls()
         bal = id_balance[misc_index[0]]
@@ -277,7 +275,7 @@ try:
             print("Please enter only numbers.")
             sleep(3)
             cls()
-            withdraw()
+            deposit()
 
     misc_id = []
 
@@ -355,6 +353,7 @@ try:
             
             inx2 =  id_name.index(cb)
             try:
+                print('')
                 mn = int(input("How much money do you want to send to {}?\n> $ ".format(cb)))
                 bal = id_balance[misc_index[0]]
                 r_bal = id_balance[inx2]
@@ -374,10 +373,19 @@ try:
                         g.close()
                         sleep(3)
                         other()
-                if mn == 0:
-                    emp()
+                elif mn == 0:
                     cls()
-                    money_transfer()
+                    emp()
+                    sleep(3)
+                    cls()
+                    other()
+                elif mn > bal:
+                    cls()
+                    print('Transaction Failed!')
+                    print('')
+                    print('You don\'t have sufficient balance in your account.')
+                    sleep(3)
+                    other()
             except ValueError:
                 cls()
                 print('Please enter only numbers.')
@@ -393,7 +401,6 @@ try:
 
 
 
-    
     home()
 
             
