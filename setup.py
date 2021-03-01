@@ -1,6 +1,6 @@
 from time import sleep
 import os
-import sys                                                                      # 386 Lines
+import sys                                                                      # 376 Lines
 from os import system
 
 
@@ -12,7 +12,7 @@ def cls():
 
 try:
     os.system('pip3 install -r requirements.txt || pip install -r requirements.txt')
-except RuntimeError:
+except Exception:
     pass
 cls()
 
@@ -224,16 +224,6 @@ def users():
         users()
         
     
-    
-
-
-
-
-
-
-
-
-
 def welcome():
     print('Welcome to the Merryweather ATM setup wizard.\n\nPlease enter the following questions carefully for any wrong information may create further problems.')
 
