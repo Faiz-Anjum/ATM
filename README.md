@@ -26,20 +26,27 @@ Run setup.py and follow the on-screen instructions to setup script for the first
 
 
 
-**Screenshots**
 
-![Homescreen](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/homescreen.png)
-Homescreen
+
+
+**Some working screenshots**
+
+![Homescreen](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/1.png)
+
 
 .
 
-![Services](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/services.png)
+![Setup](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/2.png)
 Services
 
 .
 
-![Exiting](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/exit.png)
-Exit screen
+https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/3.png
+
+.
+
+https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/4.png
+
 
 
 
