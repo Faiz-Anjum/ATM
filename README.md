@@ -28,24 +28,29 @@ Run setup.py and follow the on-screen instructions to setup script for the first
 
 
 
-
 **Some working screenshots**
 
-![Homescreen](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/1.png)
+
+![1](https://user-images.githubusercontent.com/67872796/110527685-470db180-813d-11eb-8d5b-22efcf383615.png)
 
 
 .
 
-![Setup](https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/2.png)
-Services
+
+![2](https://user-images.githubusercontent.com/67872796/110527715-51c84680-813d-11eb-83f3-a1219ea6e1bb.png)
+
 
 .
 
-https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/3.png
+
+![3](https://user-images.githubusercontent.com/67872796/110527784-6278bc80-813d-11eb-8997-c2ca45cb66c5.png)
+
 
 .
 
-https://raw.githubusercontent.com/Faiz-Anjum/ATM/main/screenshots/4.png
+
+![4](https://user-images.githubusercontent.com/67872796/110527808-6ad0f780-813d-11eb-8864-40bec90a12e5.png)
+
 
 
 
