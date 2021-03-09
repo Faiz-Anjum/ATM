@@ -4,43 +4,43 @@ from os import system                                                           
 from time import sleep
 
 def run():
-    atm = input('Would you like to run the setup script now?\n> ')
+    atm = input("Would you like to run the setup script now?\n> ")
         
-    if atm == 'y' or atm == 'Y' or atm == 'YES' or atm == 'Yes' or atm == 'yes':
-        os.system('python3 setup.py || python setup.py')
+    if atm == "y" or atm == "Y" or atm == "YES" or atm == "Yes" or atm == "yes":
+        os.system("python3 setup.py || python setup.py")
         cls()
         exit()
             
-    elif atm == 'n' or atm == 'N' or atm == 'NO' or atm == 'No' or atm == 'no':
+    elif atm == "n" or atm == "N" or atm == "NO" or atm == "No" or atm == "no":
             cls()
             a = input("Press Enter to close this script.\n")
 
-    elif len(atm) <= 0 or atm != atm.isalpha() or atm != 'yes' or atm != 'YES' or atm != 'Yes' or atm != 'y' or atm != 'Y' or atm != 'no' or atm != 'NO' or atm != 'No' or atm != 'n' or atm != 'N':
+    elif len(atm) <= 0 or atm != atm.isalpha() or atm != "yes" or atm != "YES" or atm != "Yes" or atm != "y" or atm != "Y" or atm != "no" or atm != "NO" or atm != "No" or atm != "n" or atm != "N":
         cls()
-        print('Please enter either \'Yes\' or \'No\'.')
+        print("Please enter either 'Yes' or 'No'.")
         sleep(3)
         run()
         
 def cls():
-        if sys.platform.startswith('win32' or 'win64' or 'win86'):
-            os.system('cls')
+        if sys.platform.startswith("win32" or "win64" or "win86"):
+            os.system("cls")
         else:
-            os.system('clear')
+            os.system("clear")
 
 try:
     
     
     from asset.database import id_list, id_name, id_balance
     
-    if sys.platform.startswith('win32' or 'win64' or 'win86'):
-        os.system('cls')
+    if sys.platform.startswith("win32" or "win64" or "win86"):
+        os.system("cls")
     else:
-        os.system('clear')
+        os.system("clear")
 
     try:
         from pyfiglet import Figlet
-        f = Figlet(font='big')
-        print(f.renderText('Merryweather ATM'))
+        f = Figlet(font="big")
+        print(f.renderText("Merryweather ATM"))
     except ImportError or ModuleNotFoundError:
         pass
 
@@ -66,7 +66,7 @@ try:
     # Function for homescreen.
     def home():
         print("\nWelcome to Merryweather Automated Machine Services.")
-        print('')
+        print("")
         try:
             idd = int(input("Please enter your personal identification number.\n> "))
         except ValueError:
@@ -82,7 +82,7 @@ try:
             misc_index.append(indexx)
             ast.append(indexx)
             cls()
-            print('Hello {},' .format(id_name[indexx]))
+            print("Hello {}," .format(id_name[indexx]))
             username.append(id_name[indexx])
             service()
         elif not idd in id_list:
@@ -97,12 +97,12 @@ try:
     def service():
         print("What service would you like to use today?\n")
         print("1. Withdrawl\n2. Deposit\n3. Balance enquiry\n4. Money Transfer\n5. Change PIN")
-        print('')
+        print("")
         try:
-            serv = int(input("Enter either \'1\', \'2\', \'3\', \'4\', \'5\' or Enter \'0\' to exit.\n> "))
+            serv = int(input("Enter either '1', '2', '3', '4', '5' or Enter '0' to exit.\n> "))
         except ValueError:
             cls()
-            print('Please enter only numbers.')
+            print("Please enter only numbers.")
             sleep(3)
             cls()
             service()
@@ -128,7 +128,7 @@ try:
 
     def ex():
         cls()
-        ab = input('Thank you for using Merryweather ATM services. Press Enter to exit this script.\n')
+        ab = input("Thank you for using Merryweather ATM services. Press Enter to exit this script.\n")
         if len(ab) >= 0:
             exit()
         
@@ -138,20 +138,20 @@ try:
 
     def other():
         cls()
-        ott = input('Do you want to use any other service?\n\nEnter either \'Yes\' or \'No.\'\n> ')
-        if ott == "Yes" or ott == 'yes' or ott == 'YES' or ott == 'Y' or ott == 'y':
+        ott = input("Do you want to use any other service?\n\nEnter either 'Yes' or 'No.'\n> ")
+        if ott == "Yes" or ott == "yes" or ott == "YES" or ott == "Y" or ott == "y":
             cls()
             service()
-        elif ott == "No" or ott == 'no' or ott == 'NO' or ott == 'N' or ott == 'n':
+        elif ott == "No" or ott == "no" or ott == "NO" or ott == "N" or ott == "n":
             ex()
         elif ott != ott.isalpha():
             cls()
             print("Please enter only alphabets.")
             sleep(3)
             other()
-        elif ott != 'Yes' or ott != 'YES' or ott != 'yes' or ott != 'no' or ott != 'No' or ott != 'NO':
+        elif ott != "Yes" or ott != "YES" or ott != "yes" or ott != "no" or ott != "No" or ott != "NO":
             cls()
-            print('Please enter either \'Yes\' or \'No\'.')
+            print("Please enter either 'Yes' or 'No'.")
             sleep(3)
             other()
         elif len(ott) == 0:
@@ -167,16 +167,16 @@ try:
     def balance():
         if len(money_transfer_count) > 0:
             cls()
-            print('Session Timed out, Please login again.')
+            print("Session Timed out, Please login again.")
             sleep(3)
-            os.system('python3 ATM.py || python ATM.py')
+            os.system("python3 ATM.py || python ATM.py")
             cls()
             exit()
         else:
             from asset.database import id_balance
             bal = id_balance[misc_index[0]]
             cls()
-            print('Your available balance is ${}.' .format(bal))
+            print("Your available balance is ${}." .format(bal))
             sleep(3)
             cls()
             other()
@@ -188,17 +188,17 @@ try:
         try:
             if len(withdraw_count) > 0:
                 cls()
-                print('Session Timed out, Please login again.')
+                print("Session Timed out, Please login again.")
                 sleep(3)
-                os.system('python3 ATM.py || python ATM.py')
+                os.system("python3 ATM.py || python ATM.py")
                 cls()
                 exit()
             elif len(withdraw_count) <= 0:
-                amount = int(input('How much money do you want to withdraw?\n> $ '))
+                amount = int(input("How much money do you want to withdraw?\n> $ "))
                 if int(amount) > ac_bal[0]:
                     cls()
-                    print('Transaction Failed')
-                    print('')
+                    print("Transaction Failed")
+                    print("")
                     print("You do not have sufficient balance in your account.")
                     sleep(3)
                     cls()
@@ -207,11 +207,11 @@ try:
                     up_bal = int(ac_bal[0]) - int(amount)
                     a = misc_index[0]
                     id_balance[a] = up_bal
-                    print('')
+                    print("")
                     print("Your remaining balance is ${}." .format(id_balance[misc_index[0]]))
-                    abc = 'asset' + str(ast[0])
-                    with open('asset/{}.py'.format(abc),'w') as a:
-                        a.write('a{} = {}'.format(ast[0], id_balance[misc_index[0]]))
+                    abc = "asset" + str(ast[0])
+                    with open("asset/{}.py".format(abc),"w") as a:
+                        a.write("a{} = {}".format(ast[0], id_balance[misc_index[0]]))
                         a.close()
                         withdraw_count.append(1)
                         sleep(3)
@@ -236,9 +236,9 @@ try:
         try:
             if len(withdraw_count) > 0:
                 cls()
-                print('Session Timed out, Please login again.')
+                print("Session Timed out, Please login again.")
                 sleep(3)
-                os.system('python3 ATM.py || python ATM.py')
+                os.system("python3 ATM.py || python ATM.py")
                 cls()
                 exit()
             check = int(input("How much money do you want to deposit?\n\n> $ "))
@@ -246,12 +246,12 @@ try:
                 up_bal = int(ac_bal[0]) + int(check)
                 a = misc_index[0]
                 id_balance[a] = up_bal
-                print('')
+                print("")
                 print("Your updated balance is ${}." .format(id_balance[misc_index[0]]))
-                abc = 'asset' + str(ast[0])
-                with open('asset/{}.py'.format(abc),'w') as b:
+                abc = "asset" + str(ast[0])
+                with open("asset/{}.py".format(abc),"w") as b:
                     
-                    b.write('a{} = {}'.format(ast[0], id_balance[misc_index[0]]))
+                    b.write("a{} = {}".format(ast[0], id_balance[misc_index[0]]))
                     b.close()
                     withdraw_count.append(1)
                     sleep(3)
@@ -261,7 +261,7 @@ try:
                     other()
             elif check > 10000:
                 cls()
-                print('You can only deposit $10,000 at a time')
+                print("You can only deposit $10,000 at a time")
                 sleep(3)
                 deposit()
             elif len(check) == 0:
@@ -284,20 +284,20 @@ try:
         inx = misc_index[0]
         try:
             check = int(input("Enter a four digit password.\n> "))
-            print('')
+            print("")
             dcheck = int(input("Enter your password again.\n> "))
-            check1 = str(check).startswith('0')
+            check1 = str(check).startswith("0")
             
             if check1 == True:
                 cls()
-                print("Please avoid using \'0\' as the first digit.")
+                print("Please avoid using '0' as the first digit.")
                 sleep(3)
                 cls()
                 id_change()
             elif check == dcheck and len(str(check)) == 4 and len(str(dcheck)) ==4:
                 cls()
-                with open('asset/pin{}.py'.format(inx),'w') as f:
-                    f.write('pin{} = {}'.format(inx, check))
+                with open("asset/pin{}.py".format(inx),"w") as f:
+                    f.write("pin{} = {}".format(inx, check))
                     misc_id.append(1)
                     print("Password successfully changed!")
                     f.close()
@@ -305,7 +305,7 @@ try:
                     other()
             elif check != dcheck:
                 cls()
-                print("Your Password doesn't match, please try again.")
+                print("Your Password doesn"t match, please try again.")
                 sleep(3)
                 cls()
                 id_change()
@@ -345,7 +345,7 @@ try:
         cb = cc.title()
         if cb == str(*username):
             cls()
-            print('You cannot send money to yourself.')
+            print("You cannot send money to yourself.")
             sleep(3)
             other()
             
@@ -353,26 +353,33 @@ try:
             
             inx2 =  id_name.index(cb)
             try:
-                print('')
+                print("")
                 mn = int(input("How much money do you want to send to {}?\n> $ ".format(cb)))
                 bal = id_balance[misc_index[0]]
                 r_bal = id_balance[inx2]
-                if mn <= bal and mn <= 10000 and mn != 0:
+                if mn <= bal and mn <= 10000 and mn != 0 and mn > 0:
                     new_bal = bal - mn
                     new_r_bal = r_bal + mn
-                    with open('asset/asset{}.py'.format(inx2),'w') as f:
-                        f.write('a{} = {}'.format(inx2, new_r_bal))
+                    with open("asset/asset{}.py".format(inx2),"w") as f:
+                        f.write("a{} = {}".format(inx2, new_r_bal))
                         print("Transaction Successful.")
                         f.close()
 
 
-                    with open('asset/asset{}.py'.format(misc_index[0]),'w') as g:
-                        g.write('a{} = {}'.format(misc_index[0], new_bal))
+                    with open("asset/asset{}.py".format(misc_index[0]),"w") as g:
+                        g.write("a{} = {}".format(misc_index[0], new_bal))
                         print("Your available balance is ${}.".format(new_bal))
                         money_transfer_count.append(1)
                         g.close()
                         sleep(3)
                         other()
+                elif mn < 0:
+                    cls()
+                    print("Transaction Failed!")
+                    print("")
+                    print("Please enter a valid amount.")
+                    sleep(3)
+                    other()
                 elif mn == 0:
                     cls()
                     emp()
@@ -381,20 +388,20 @@ try:
                     other()
                 elif mn > bal:
                     cls()
-                    print('Transaction Failed!')
-                    print('')
-                    print('You don\'t have sufficient balance in your account.')
+                    print("Transaction Failed!")
+                    print("")
+                    print("You don't have sufficient balance in your account.")
                     sleep(3)
                     other()
             except ValueError:
                 cls()
-                print('Please enter only numbers.')
+                print("Please enter only numbers.")
                 sleep(3)
                 cls()
                 money_transfer()
         elif not cb in id_name:
             cls()
-            print('Transaction Failed.\n\nThe recepient name you entered doesn\'t match our records.')
+            print("Transaction Failed.\n\nThe recepient name you entered doesn't match our records.")
             sleep(3)
             other()
 
@@ -405,7 +412,7 @@ try:
 
             
 except ImportError:
-    print('Please run the setup file before running this script.')
+    print("Please run the setup file before running this script.")
     sleep(6)
-    print('')
+    print("")
     run()
