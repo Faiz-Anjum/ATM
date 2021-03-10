@@ -16,12 +16,51 @@ except Exception:
     pass
 cls()
 
+def banner():
+        try:
+            from pyfiglet import Figlet
+            f = Figlet(font='big')
+            print(f.renderText("""Merryweather\nATM services"""))
+        except ImportError or ModuleNotFoundError:
+            pass
+
 try:
-    from pyfiglet import Figlet
-    f = Figlet(font='big')
-    print(f.renderText('Welcome'))
+    import re
+    import colorama
+    class IO(object):
+        _ANSI_CSI_RE = re.compile('\001?\033\\[((?:\\d|;)*)([a-zA-Z])\002?') 
+
+        Back = colorama.Back
+        Fore = colorama.Fore
+        Style = colorama.Style
+    def c_banner():
+        MAIN_BANNER = r"""{}
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+                                                                                                                                                                    
+	{}         
+                                                                                                       
+	""".format(IO.Fore.LIGHTRED_EX, IO.Style.RESET_ALL + IO.Style.BRIGHT)
+        print(MAIN_BANNER)
+    
+
+    c_banner()
 except ImportError or ModuleNotFoundError:
-    pass
+    if sys.platform.startswith("win32" or "win64" or "win86"):
+        banner()
+    else:
+        print('Consider installing Colorama in your distro (sudo apt-get install python3-colorama)')
+        banner()
+
+
+    
+
+
 
 
 
