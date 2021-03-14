@@ -322,7 +322,7 @@ def name():
             inx += 1
             usr += 1
             cls()
-    print('Saving Names in Database')
+    print('Saving Names in Database...')
     sleep(3)
     cls()
     pin()
@@ -353,7 +353,7 @@ def pin():
             print('Please enter only numbers.')
             sleep(3)
             pin()
-    print('Saving PINs in Database')
+    print('Saving PINs in Database...')
     sleep(3)
     cls()
     bal()

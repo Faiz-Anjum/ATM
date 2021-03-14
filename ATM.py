@@ -1,6 +1,6 @@
 import os
 import sys
-from os import system                                                                   # 460 Lines
+from os import system                                                                   # 466 Lines
 from time import sleep
 
 def run():
@@ -336,7 +336,7 @@ try:
                 sleep(3)
                 cls()
                 id_change()
-            elif check == dcheck and len(str(check)) == 4 and len(str(dcheck)) ==4:
+            elif check == dcheck and len(str(check)) == 4 and len(str(dcheck)) ==4 and check > 0 and dcheck > 0:
                 cls()
                 with open("asset/pin{}.py".format(inx),"w") as f:
                     f.write("pin{} = {}".format(inx, check))
@@ -345,6 +345,11 @@ try:
                     f.close()
                     sleep(3)
                     other()
+            elif check < 0 and dcheck < 0:
+                cls()
+                print("Please enter valid numbers.")
+                sleep(3)
+                other()
             elif check != dcheck:
                 cls()
                 print("Your Password doesn\'t match, please try again.")
@@ -453,6 +458,7 @@ try:
 
             
 except ImportError:
+    cls()
     print("Please run the setup file before running this script.")
     sleep(6)
     print("")
