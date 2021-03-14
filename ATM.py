@@ -1,14 +1,15 @@
 import os
 import sys
-from os import system                                                                   # 412 Lines
+from os import system                                                                   # 460 Lines
 from time import sleep
 
 def run():
     atm = input("Would you like to run the setup script now?\n> ")
         
     if atm == "y" or atm == "Y" or atm == "YES" or atm == "Yes" or atm == "yes":
-        os.system("python3 setup.py || python setup.py")
         cls()
+        print("Running setup, please wait...")
+        os.system("python3 setup.py || python setup.py")
         exit()
             
     elif atm == "n" or atm == "N" or atm == "NO" or atm == "No" or atm == "no":
@@ -445,7 +446,6 @@ try:
             print("Transaction Failed.\n\nThe recepient name you entered doesn't match our records.")
             sleep(3)
             other()
-
 
 
 
