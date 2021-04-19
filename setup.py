@@ -413,4 +413,4 @@ try:
 except PermissionError:
 	cls()
 	print('It has been detected that you dont have the permission to write files in this directory.\nIf you\'re using this script on a Linux distribution, root the script as root.\nIf you\'re on Windows, check that the files are not set to \"read only\".\nIf it still doesn\'t work then you doesn\'t have the right privileges to execute this script and make changes. Most probably your administration has blocked this feature.')
-welcom()
+welcome()
