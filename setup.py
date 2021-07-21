@@ -317,6 +317,12 @@ def name():
     try:
         for i in range(f):
             o_name = input('Enter the name of user {}.\n> '.format(usr))
+            if len(o_name) <= 0:
+                cls()
+                print("Please enter a correct value.")
+                sleep(2)
+                cls()
+                name()
             print('')
             t_name = o_name.title()
             names.append(t_name)
